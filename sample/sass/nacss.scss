@@ -3,53 +3,53 @@
  * Style
  *
  * @author Takuto Yanagida
- * @version 2021-12-07
+ * @version 2021-12-22
  *
  */
 
 
-@use '../../node_modules/nacss-align/src/sass/float';
-@use '../../node_modules/nacss-align/src/sass/overflow';
+@use 'dist/sass/align/float';
+@use 'dist/sass/align/overflow';
 
-@use '../../node_modules/nacss-container/src/sass/common' as container;
-@use '../../node_modules/nacss-container/src/sass/card';
-@use '../../node_modules/nacss-container/src/sass/masonry';
+@use 'dist/sass/container/common' as container;
+@use 'dist/sass/container/card';
+@use 'dist/sass/container/masonry';
 
-@use '../../node_modules/nacss-content/src/sass/inline';
-@use '../../node_modules/nacss-content/src/sass/block';
-@use '../../node_modules/nacss-content/src/sass/figure';
-@use '../../node_modules/nacss-content/src/sass/margin';
-@use '../../node_modules/nacss-content/src/sass/print';
-@use '../../node_modules/nacss-content/src/sass/broken-image';
+@use 'dist/sass/content/inline';
+@use 'dist/sass/content/block';
+@use 'dist/sass/content/figure';
+@use 'dist/sass/content/margin';
+@use 'dist/sass/content/print';
+@use 'dist/sass/content/broken-image';
 
-@use '../../node_modules/nacss-font/src/sass/stack' as font-stack;
-@use '../../node_modules/nacss-font/src/sass/typography';
+@use 'dist/sass/font/stack' as font-stack;
+@use 'dist/sass/font/typography';
 
-@use '../../node_modules/nacss-form/src/sass/common' as form;
-@use '../../node_modules/nacss-form/src/sass/button';
-@use '../../node_modules/nacss-form/src/sass/input';
-@use '../../node_modules/nacss-form/src/sass/rad-chk';
-@use '../../node_modules/nacss-form/src/sass/fieldset';
-@use '../../node_modules/nacss-form/src/sass/wrapper-rad-chk';
-@use '../../node_modules/nacss-form/src/sass/wrapper-select';
-@use '../../node_modules/nacss-form/src/sass/wrapper-type-number';
+@use 'dist/sass/form/common' as form;
+@use 'dist/sass/form/button';
+@use 'dist/sass/form/input';
+@use 'dist/sass/form/rad-chk';
+@use 'dist/sass/form/fieldset';
+@use 'dist/sass/form/wrapper-rad-chk';
+@use 'dist/sass/form/wrapper-select';
+@use 'dist/sass/form/wrapper-type-number';
 
-@use '../../node_modules/nacss-link/src/sass/type';
+@use 'dist/sass/link/type';
 
-@use '../../node_modules/nacss-list/src/sass/inner' as list-inner;
+@use 'dist/sass/list/inner' as list-inner;
 
-@use '../../node_modules/nacss-tab/src/sass/scroll' as tab-scroll;
-@use '../../node_modules/nacss-tab/src/sass/stack' as tab-stack;
+@use 'dist/sass/tab/scroll' as tab-scroll;
+@use 'dist/sass/tab/stack' as tab-stack;
 
-@use '../../node_modules/nacss-table/src/sass/inner' as table;
-@use '../../node_modules/nacss-table/src/sass/neat-width';
-@use '../../node_modules/nacss-table/src/sass/usable-view';
+@use 'dist/sass/table/inner' as table;
+@use 'dist/sass/table/neat-width';
+@use 'dist/sass/table/usable-view';
 
-@use '../../node_modules/nacss-viewer/src/sass/dialog';
-@use '../../node_modules/nacss-viewer/src/sass/frame';
+@use 'dist/sass/viewer/dialog';
+@use 'dist/sass/viewer/frame';
 
-@forward '../../node_modules/nacss-utility/src/sass/layout';
-@forward '../../node_modules/nacss-utility/src/sass/query';
+@forward 'dist/sass/utility/layout';
+@forward 'dist/sass/utility/query';
 
 
 :root {

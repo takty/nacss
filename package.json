@@ -5,9 +5,8 @@
 	"author": "Takuto Yanagida",
 	"main": "gulpfile.js",
 	"scripts": {
-		"postinstall": "gulp build",
-		"start": "gulp",
-		"docs": "gulp docs"
+		"postinstall": "gulp",
+		"start": "gulp"
 	},
 	"repository": {
 		"type": "git",
@@ -18,27 +17,12 @@
 		"url": "https://github.com/takty/nacss/issues"
 	},
 	"homepage": "https://github.com/takty/nacss#readme",
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 11",
-		"not dead"
-	],
 	"dependencies": {
-		"@babel/core": "^7.16.0",
-		"@babel/preset-env": "^7.16.4",
 		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^8.0.0",
-		"gulp-babel": "^8.0.0",
 		"gulp-changed": "^4.0.3",
-		"gulp-include": "^2.4.1",
+		"gulp-ignore": "^3.0.0",
 		"gulp-load-plugins": "^2.0.7",
 		"gulp-plumber": "^1.2.1",
-		"gulp-preprocess": "^4.0.2",
-		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^5.0.0",
-		"gulp-terser": "^2.1.0",
-		"sass": "^1.44.0",
 		"nacss-align": "git+https://github.com/takty/nacss-align.git",
 		"nacss-container": "git+https://github.com/takty/nacss-container.git",
 		"nacss-content": "git+https://github.com/takty/nacss-content.git",
@@ -54,10 +38,5 @@
 		"nacss-table": "git+https://github.com/takty/nacss-table.git",
 		"nacss-utility": "git+https://github.com/takty/nacss-utility.git",
 		"nacss-viewer": "git+https://github.com/takty/nacss-viewer.git"
-	},
-	"devDependencies": {
-		"gulp-ignore": "^3.0.0",
-		"gulp-replace": "^1.1.3",
-		"moment": "^2.29.1"
 	}
 }

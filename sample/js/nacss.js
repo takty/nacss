@@ -3,7 +3,7 @@
  * Script
  *
  * @author Takuto Yanagida
- * @version 2021-12-06
+ * @version 2021-12-22
  *
  */
 
@@ -16,58 +16,58 @@ window['NACSS'] = window['NACSS'] || {};
 (function (NS) {
 
 	{
-		// @include _initializer.js
+		// @include dist/js/_/_initializer.js
 		NS.initializeQuerySelector    = initializeQuerySelector;
 		NS.initializeQuerySelectorAll = initializeQuerySelectorAll;
 	}
 
 	// -------------------------------------------------------------------------
 
-	// @include _style-class.js
-	// @include _utility.js
+	// @include dist/js/_/_style-class.js
+	// @include dist/js/_/_utility.js
 
 	// Align -------------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-align/src/js/_float.js
+		// @include dist/js/align/_float.js
 		NS.alignFloat = initialize;
 	}
 
 	// Content -----------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-content/src/js/_image-alt.js
+		// @include dist/js/content/_image-alt.js
 		NS.contentImageAlt = initialize;
 	}
 
 	{
-		// @include ../../node_modules/nacss-content/src/js/_figure-caption.js
+		// @include dist/js/content/_figure-caption.js
 		NS.contentFigureCaption = initialize;
 	}
 
 	{
-		// @include ../../node_modules/nacss-content/src/js/_iframe-aspect.js
+		// @include dist/js/content/_iframe-aspect.js
 		NS.contentIframeAspect = initialize;
 	}
 
 	{
-		// @include ../../node_modules/nacss-content/src/js/_underline.js
+		// @include dist/js/content/_underline.js
 		NS.contentUnderline = initialize;
 	}
 
 	// Delay Loading -----------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-delay/src/js/_common.js
+		// @include dist/js/delay/_common.js
 
 		{
-			// @include ../../node_modules/nacss-delay/src/js/_image.js
+			// @include dist/js/delay/_image.js
 			NS.delayImage         = initialize;
 			NS.delayImageIsNeeded = isPolyfillNeeded;
 		}
 
 		{
-			// @include ../../node_modules/nacss-delay/src/js/_iframe.js
+			// @include dist/js/delay/_iframe.js
 			NS.delayIframe         = initialize;
 			NS.delayIframeIsNeeded = isPolyfillNeeded;
 		}
@@ -76,16 +76,16 @@ window['NACSS'] = window['NACSS'] || {};
 	// Japanese Text -----------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-ja/src/js/_common.js
+		// @include dist/js/ja/_common.js
 
 		{
-			// @include ../../node_modules/nacss-ja/src/js/_kerning.js
+			// @include dist/js/ja/_kerning.js
 			NS.jaKerning      = initialize;
 			NS.jaApplyKerning = apply;
 		}
 
 		{
-			// @include ../../node_modules/nacss-ja/src/js/_segmenter.js
+			// @include dist/js/ja/_segmenter.js
 			NS.jaSegmenter      = initialize;
 			NS.jaApplySegmenter = apply;
 		}
@@ -94,10 +94,10 @@ window['NACSS'] = window['NACSS'] || {};
 	// Link --------------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-link/src/js/_common.js
+		// @include dist/js/link/_common.js
 
 		{
-			// @include ../../node_modules/nacss-link/src/js/_type.js
+			// @include dist/js/link/_type.js
 			NS.linkApply      = apply;
 			NS.linkApplyByUrl = applyByUrl;
 
@@ -105,7 +105,7 @@ window['NACSS'] = window['NACSS'] || {};
 		}
 
 		{
-			// @include ../../node_modules/nacss-link/src/js/_anchor.js
+			// @include dist/js/link/_anchor.js
 			NS.linkAnchorScroll = initialize;
 
 			NS.smoothScrollToElement = smoothScrollToElement;
@@ -115,29 +115,29 @@ window['NACSS'] = window['NACSS'] || {};
 	// List --------------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-list/src/js/_customized.js
+		// @include dist/js/list/_customized.js
 		NS.listCustomized = initialize;
 	}
 
 	// Scroll Effect -----------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-scroll/src/js/_scroll.js
+		// @include dist/js/scroll/_scroll.js
 		NS.scroll = initialize;
 	}
 
 	// Tab ---------------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-tab/src/js/_common.js
+		// @include dist/js/tab/_common.js
 
 		{
-			// @include ../../node_modules/nacss-tab/src/js/_scroll.js
+			// @include dist/js/tab/_scroll.js
 			NS.tabScroll = initialize;
 		}
 
 		{
-			// @include ../../node_modules/nacss-tab/src/js/_stack.js
+			// @include dist/js/tab/_stack.js
 			NS.tabStack = initialize;
 		}
 	}
@@ -146,12 +146,12 @@ window['NACSS'] = window['NACSS'] || {};
 
 	{
 		{
-			// @include ../../node_modules/nacss-table/src/js/_neat-width.js
+			// @include dist/js/table/_neat-width.js
 			NS.tableNeatWidth = initialize;
 		}
 
 		{
-			// @include ../../node_modules/nacss-table/src/js/_usable-view.js
+			// @include dist/js/table/_usable-view.js
 			NS.tableUsableView = initialize;
 		}
 	}
@@ -159,7 +159,7 @@ window['NACSS'] = window['NACSS'] || {};
 	// Utility (Query) ---------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-utility/src/js/_inner.js
+		// @include dist/js/utility/_inner.js
 		NS['BROWSER'] = getBrowser();
 		NS['DEVICE']  = getDevice();
 
@@ -171,17 +171,17 @@ window['NACSS'] = window['NACSS'] || {};
 	// Viewer ------------------------------------------------------------------
 
 	{
-		// @include ../../node_modules/nacss-viewer/src/js/_dialog.js
-		// @include ../../node_modules/nacss-viewer/src/js/_hash.js
+		// @include dist/js/viewer/_dialog.js
+		// @include dist/js/viewer/_hash.js
 
 		{
-			// @include ../../node_modules/nacss-viewer/src/js/_touch.js
-			// @include ../../node_modules/nacss-viewer/src/js/_image.js
+			// @include dist/js/viewer/_touch.js
+			// @include dist/js/viewer/_image.js
 			NS.viewerImage = initializeImageViewer;
 		}
 
 		{
-			// @include ../../node_modules/nacss-viewer/src/js/_iframe.js
+			// @include dist/js/viewer/_iframe.js
 			NS.viewerIframe = initializeIframeViewer;
 		}
 	}
