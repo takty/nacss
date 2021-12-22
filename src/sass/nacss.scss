@@ -1,0 +1,489 @@
+/**
+ *
+ * Style
+ *
+ * @author Takuto Yanagida
+ * @version 2021-12-07
+ *
+ */
+
+
+@use '../../node_modules/nacss-align/src/sass/float';
+@use '../../node_modules/nacss-align/src/sass/overflow';
+
+@use '../../node_modules/nacss-container/src/sass/common' as container;
+@use '../../node_modules/nacss-container/src/sass/card';
+@use '../../node_modules/nacss-container/src/sass/masonry';
+
+@use '../../node_modules/nacss-content/src/sass/inline';
+@use '../../node_modules/nacss-content/src/sass/block';
+@use '../../node_modules/nacss-content/src/sass/figure';
+@use '../../node_modules/nacss-content/src/sass/margin';
+@use '../../node_modules/nacss-content/src/sass/print';
+@use '../../node_modules/nacss-content/src/sass/broken-image';
+
+@use '../../node_modules/nacss-font/src/sass/stack' as font-stack;
+@use '../../node_modules/nacss-font/src/sass/typography';
+
+@use '../../node_modules/nacss-form/src/sass/common' as form;
+@use '../../node_modules/nacss-form/src/sass/button';
+@use '../../node_modules/nacss-form/src/sass/input';
+@use '../../node_modules/nacss-form/src/sass/rad-chk';
+@use '../../node_modules/nacss-form/src/sass/fieldset';
+@use '../../node_modules/nacss-form/src/sass/wrapper-rad-chk';
+@use '../../node_modules/nacss-form/src/sass/wrapper-select';
+@use '../../node_modules/nacss-form/src/sass/wrapper-type-number';
+
+@use '../../node_modules/nacss-link/src/sass/type';
+
+@use '../../node_modules/nacss-list/src/sass/inner' as list-inner;
+
+@use '../../node_modules/nacss-tab/src/sass/scroll' as tab-scroll;
+@use '../../node_modules/nacss-tab/src/sass/stack' as tab-stack;
+
+@use '../../node_modules/nacss-table/src/sass/inner' as table;
+@use '../../node_modules/nacss-table/src/sass/neat-width';
+@use '../../node_modules/nacss-table/src/sass/usable-view';
+
+@use '../../node_modules/nacss-viewer/src/sass/dialog';
+@use '../../node_modules/nacss-viewer/src/sass/frame';
+
+@forward '../../node_modules/nacss-utility/src/sass/layout';
+@forward '../../node_modules/nacss-utility/src/sass/query';
+
+
+:root {
+	@include float.custom-property;
+	@include overflow.custom-property;
+
+	@include container.custom-property;
+
+	@include inline.custom-property;
+	@include block.custom-property;
+	@include figure.custom-property;
+	@include margin.custom-property;
+	@include print.custom-property;
+	@include broken-image.custom-property;
+	@media print { @include print.main; }
+
+	@include font-stack.custom-property();
+
+	@include form.custom-property;
+
+	@include type.custom-property-direction;
+	@include type.custom-property-file;
+
+	@include list-inner.custom-property;
+	@include list-inner.custom-property-customized;
+
+	@include tab-scroll.custom-property;
+	@include tab-scroll.custom-property-appearance-bar;
+	// @include tab-scroll.custom-property-appearance-tab;
+	@include tab-stack.custom-property;
+	@include tab-stack.custom-property-appearance-bar;
+	// @include tab-stack.custom-property-appearance-tab;
+
+	@include table.custom-property-appearance;
+	@include table.custom-property-appearance-stripe;
+	@include neat-width.custom-property;
+	@include usable-view.custom-property;
+	@include neat-width.custom-property-side-shadow;
+
+	@include dialog.custom-property;
+	@include frame.custom-property;
+
+	@include typography.font-size-line-height(4);
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+.alignleft,
+.alignright {
+	@include float.side;
+}
+
+.alignleft {
+	@include float.left;
+}
+
+.alignright {
+	@include float.right;
+}
+
+.aligncenter {
+	@include float.center;
+}
+
+.alignfull,
+.alignwide {
+	@include overflow.all;
+}
+
+.alignfull {
+	@include overflow.full;
+}
+
+.alignwide {
+	@include overflow.wide;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+.column-2 {
+	--nc-container-min-width: var(--nc-container-min-width-2);
+	@include card.card-n;
+}
+
+.column-3 {
+	@include card.card-3-1;
+}
+
+.column-4 {
+	@include card.card-4-2-1;
+}
+
+.column-5 {
+	@include card.card-5-3-2-1;
+}
+
+.column-6 {
+	@include card.card-6-3-2-1;
+}
+
+.column-2-1 {
+	--nc-container-min-width: var(--nc-container-min-width-2);
+	@include card.card-n;
+}
+
+.column-3-1 {
+	@include card.card-3-1;
+}
+
+.column-4-1 {
+	@include card.card-4-1;
+}
+
+.column-5-1 {
+	@include card.card-5-1;
+}
+
+.column-6-1 {
+	@include card.card-6-1;
+}
+
+.card-2 {
+	--nc-container-min-width: var(--nc-container-min-width-2);
+	@include card.card-n;
+}
+
+.card-3 {
+	--nc-container-min-width: var(--nc-container-min-width-3);
+	@include card.card-n;
+}
+
+.card-4 {
+	--nc-container-min-width: var(--nc-container-min-width-4);
+	@include card.card-n;
+}
+
+.card-5 {
+	--nc-container-min-width: var(--nc-container-min-width-5);
+	@include card.card-n;
+}
+
+.card-6 {
+	--nc-container-min-width: var(--nc-container-min-width-6);
+	@include card.card-n;
+}
+
+.masonry-2 {
+	--nc-container-min-width: var(--nc-container-min-width-2);
+	@include masonry.masonry-n;
+}
+
+.masonry-3 {
+	--nc-container-min-width: var(--nc-container-min-width-3);
+	@include masonry.masonry-n;
+}
+
+.masonry-4 {
+	--nc-container-min-width: var(--nc-container-min-width-4);
+	@include masonry.masonry-n;
+}
+
+.masonry-5 {
+	--nc-container-min-width: var(--nc-container-min-width-5);
+	@include masonry.masonry-n;
+}
+
+.masonry-6 {
+	--nc-container-min-width: var(--nc-container-min-width-6);
+	@include masonry.masonry-n;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+:where(main, .stile) {
+	@include inline.main;
+	@include block.main;
+	@include block.heading;
+	@include figure.main;
+	@include margin.main;
+	@include broken-image.main;
+
+	caption,
+	figcaption {
+		--nc-font-level: 3;
+		@include typography.font-size-line-height(var(--nc-font-level));
+	}
+	code {
+		font-family: var(--nc-font-mono);
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+@for $i from 1 through 16 {
+	[data-nc-font='#{$i}'] {
+		@include typography.font-size-line-height($i);
+	}
+}
+
+:where(h1) {
+	@include typography.font-size-line-height(9);
+}
+:where(h2) {
+	@include typography.font-size-line-height(8);
+}
+:where(h3) {
+	@include typography.font-size-line-height(7);
+}
+:where(h4) {
+	@include typography.font-size-line-height(6);
+}
+:where(h5) {
+	@include typography.font-size-line-height(5);
+}
+:where(h6) {
+	@include typography.font-size-line-height(4);
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+:is(
+	input,
+	button,
+	select,
+	textarea,
+	.form-ctrl-radio,
+	.form-ctrl-checkbox,
+	.form-ctrl-number,
+	.form-ctrl-select,
+	.button
+):is(:disabled, [disabled]) {
+	@include form.disabled;
+}
+
+:is(button, input[type='submit' i], input[type='button' i], input[type='reset' i], .button),
+input[type='file' i]::file-selector-button {
+	@include button.main;
+}
+
+input[type='file' i]:focus-visible::file-selector-button {
+	box-shadow: none;
+}
+
+:is(
+	input[type='text'],
+	input[type='password'],
+	input[type='url'],
+	input[type='email'],
+	input[type='tel'],
+	input[type='search'],
+	input[type='number'],
+	input[type='date'],
+	input[type='month'],
+	input[type='week'],
+	input[type='datetime'],
+	input[type='datetime-local'],
+	select,
+	textarea
+) {
+	@include input.main;
+}
+
+input[type='color'] {
+	@include input.type-color;
+}
+
+input[type='file'] {
+	@include input.type-file;
+}
+
+input[type='range'] {
+	@include input.type-range;
+}
+
+input[type='radio'] {
+	@include rad-chk.radio;
+}
+
+input[type='checkbox'] {
+	@include rad-chk.checkbox;
+}
+
+fieldset {
+	@include fieldset.main;
+}
+
+.form-ctrl-radio,
+.form-ctrl-checkbox {
+	@include wrapper-rad-chk.wrapper;
+}
+
+.form-ctrl-number {
+	@include wrapper-type-number.wrapper;
+}
+
+.form-ctrl-select {
+	@include wrapper-select.wrapper;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+span[data-nc-kern *= 's'] {
+	letter-spacing: -0.4em;
+}
+
+span[data-nc-kern *= 'h'] {
+	margin-inline-start: -0.4rem;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+a:where(:not([class])) {
+	@include type.main;
+	@include type.direction;
+	@include type.file;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+:is(ul, ol):where(:not([class])) {
+	@include list-inner.un-ordered;
+}
+
+dl:where(:not([class])) {
+	@include list-inner.definition;
+}
+
+ul[data-nc-list] {
+	@include list-inner.customized;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+div:is(.tab-scroll, .pseudo-tab-page) {
+	@include tab-scroll.main;
+	@include tab-scroll.appearance-bar;
+	// @include tab-scroll.appearance-tab;
+
+	@media print {
+		@include tab-scroll.print;
+	}
+}
+
+div:is(.tab-stack, .tab-page) {
+	@include tab-stack.main;
+	@include tab-stack.appearance-bar;
+	// @include tab-stack.appearance-tab;
+
+	@media print {
+		@include tab-stack.print
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+table:where(:not([class]), .is-style-stripes) {
+	@include table.appearance;
+}
+
+table.is-style-stripes {
+	@include table.appearance-stripe;
+}
+
+table[data-nc-table-neat] {
+	@include neat-width.neat;
+	@media print {
+		@include neat-width.neat-print;
+	}
+}
+
+table[data-nc-table-full] {
+	@include neat-width.full;
+}
+
+table[data-nc-scroll-right], table[data-nc-scroll-left]  {
+	@include neat-width.scroll;
+	@media print {
+		@include neat-width.scroll-print;
+	}
+}
+
+table[data-nc-scroll-right]:not([data-nc-scroll-left]) {
+	@include neat-width.scroll-right;
+}
+
+table[data-nc-scroll-left]:not([data-nc-scroll-right]) {
+	@include neat-width.scroll-left;
+}
+
+div[data-nc-table-sticky-header-container] {
+	@include usable-view.sticky-header-container;
+}
+
+div[data-nc-table-sticky-header-table] {
+	@include table.appearance-header;
+	@include usable-view.sticky-header-table;
+}
+
+div[data-nc-table-sticky-scroll-bar] {
+	@include usable-view.sticky-scroll-bar;
+}
+
+
+// -----------------------------------------------------------------------------
+
+
+div[data-nc-viewer] {
+	@include dialog.main;
+}
+
+div[data-nc-frame-image] {
+	@include frame.image;
+}
+
+div[data-nc-frame-iframe] {
+	@include frame.iframe;
+}
