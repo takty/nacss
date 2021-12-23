@@ -9,15 +9,18 @@
 
 'use strict';
 
-const RESET_SRC = 'nacss-reset/dist/css/*';
 const SUB_REPS = [
 	'align',
 	'container',
 	'content',
+	'delay',
 	'font',
 	'form',
+	'ja',
 	'link',
 	'list',
+	'reset',
+	'scroll',
 	'tab',
 	'table',
 	'viewer',
@@ -35,10 +38,9 @@ const NMP = getNodeModulesPath('gulp');
 // -----------------------------------------------------------------------------
 
 
-const css    = makeCopyTask(`${NMP}/${RESET_SRC}`, './dist/css');
 const sass_s = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/sass/*`, `./dist/sass/${e}/`));
 const js_s   = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/js/*`, `./dist/js/${e}/`));
 
 const js = makeCopyTask('src/js/*', './dist/js/_/');
 
-exports.default = gulp.parallel(css, ...sass_s, ...js_s, js);
+exports.default = gulp.parallel(...sass_s, ...js_s, js);
