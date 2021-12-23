@@ -9,7 +9,7 @@
 
 'use strict';
 
-const RESET_SRC = 'node_modules/nacss-reset/dist/css/*';
+const RESET_SRC = 'nacss-reset/dist/css/*';
 const SUB_REPS = [
 	'align',
 	'container',
@@ -35,7 +35,7 @@ const NMP = getNodeModulesPath('gulp');
 // -----------------------------------------------------------------------------
 
 
-const css    = makeCopyTask(RESET_SRC, './dist/css');
+const css    = makeCopyTask(`${NMP}/${RESET_SRC}`, './dist/css');
 const sass_s = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/sass/*`, `./dist/sass/${e}/`));
 const js_s   = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/js/*`, `./dist/js/${e}/`));
 
