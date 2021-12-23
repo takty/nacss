@@ -3,7 +3,7 @@
  * Gulpfile
  *
  * @author Takuto Yanagida
- * @version 2021-12-22
+ * @version 2021-12-23
  *
  */
 
@@ -26,15 +26,18 @@ const SUB_REPS = [
 
 const gulp = require('gulp');
 
-const { makeCopyTask } = require('./task-copy');
+const { makeCopyTask }       = require('./task-copy');
+const { getNodeModulesPath } = require('./node-modules-path');
+
+const NMP = getNodeModulesPath('gulp');
 
 
 // -----------------------------------------------------------------------------
 
 
 const css    = makeCopyTask(RESET_SRC, './dist/css');
-const sass_s = SUB_REPS.map(e => makeCopyTask(`node_modules/nacss-${e}/src/sass/*`, `./dist/sass/${e}/`));
-const js_s   = SUB_REPS.map(e => makeCopyTask(`node_modules/nacss-${e}/src/js/*`, `./dist/js/${e}/`));
+const sass_s = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/sass/*`, `./dist/sass/${e}/`));
+const js_s   = SUB_REPS.map(e => makeCopyTask(`${NMP}/nacss-${e}/src/js/*`, `./dist/js/${e}/`));
 
 const js = makeCopyTask('src/js/*', './dist/js/_/');
 
