@@ -239,8 +239,7 @@
 
 	caption,
 	figcaption {
-		--nc-font-level: 3;
-		@include typography.font-size-line-height(var(--nc-font-level));
+		@include typography.font-size-line-height(3);
 	}
 	code {
 		font-family: var(--nc-font-mono);
