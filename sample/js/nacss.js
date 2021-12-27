@@ -12,6 +12,18 @@
 
 window['NACSS'] = window['NACSS'] || {};
 
+document.addEventListener('DOMContentLoaded', () => {
+	window['NACSS'].initializeQuerySelectorAll('.user-content');
+
+	const as = document.querySelectorAll('[data-nc-links] a, [data-nc-links-ns] a');
+	NACSS.link.applyAll(as);
+
+	const ks = document.querySelectorAll('[data-nc-kerning]');
+	NACSS.ja.applyKerning(ks, { doAssignAttribute: false, doDisableOnSelecting: true });
+
+	const ss = document.querySelectorAll('[data-nc-segmenter]');
+	NACSS.ja.applySegmenter(ss, { doDisableOnSelecting: true });
+});
 
 ((NS) => {
 
@@ -21,17 +33,19 @@ window['NACSS'] = window['NACSS'] || {};
 		// @include dist/js/_/_initializer.js
 		NS.initializeQuerySelector    = initializeQuerySelector;
 		NS.initializeQuerySelectorAll = initializeQuerySelectorAll;
+
+		// @include _nacss.js
 	}
 
 	// Align -------------------------------------------------------------------
-	window['NACSS']['align'] = {};
+	NS['align'] = {};
 	{
 		// @include dist/js/align/_float.js
 		NS.align.alignFloat = apply;
 	}
 
 	// Content -----------------------------------------------------------------
-	window['NACSS']['content'] = {};
+	NS['content'] = {};
 	{
 		// @include dist/js/content/_image-alt.js
 		NS.content.applyImageAlt = apply;
@@ -50,7 +64,7 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// Delay Loading -----------------------------------------------------------
-	window['NACSS']['delay'] = {};
+	NS['delay'] = {};
 	{
 		{
 			// @include dist/js/delay/_image.js
@@ -68,7 +82,7 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// Japanese Text -----------------------------------------------------------
-	window['NACSS']['ja'] = {};
+	NS['ja'] = {};
 	{
 		{
 			// @include dist/js/ja/_kerning.js
@@ -84,7 +98,7 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// Link --------------------------------------------------------------------
-	window['NACSS']['link'] = {};
+	NS['link'] = {};
 	{
 		{
 			// @include dist/js/link/_type.js
@@ -104,21 +118,21 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// List --------------------------------------------------------------------
-	window['NACSS']['list'] = {};
+	NS['list'] = {};
 	{
 		// @include dist/js/list/_custom.js
 		NS.list.applyCustom = apply;
 	}
 
 	// Scroll Effect -----------------------------------------------------------
-	window['NACSS']['scroll'] = {};
+	NS['scroll'] = {};
 	{
 		// @include dist/js/scroll/_scroll.js
 		NS.scroll.apply = apply;
 	}
 
 	// Tab ---------------------------------------------------------------------
-	window['NACSS']['tab'] = {};
+	NS['tab'] = {};
 	{
 		{
 			// @include dist/js/tab/_scroll.js
@@ -132,7 +146,7 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// Table -------------------------------------------------------------------
-	window['NACSS']['table'] = {};
+	NS['table'] = {};
 	{
 		{
 			// @include dist/js/table/_neat-width.js
@@ -145,12 +159,12 @@ window['NACSS'] = window['NACSS'] || {};
 	}
 
 	// Viewer ------------------------------------------------------------------
-	window['NACSS']['viewer'] = {};
+	NS['viewer'] = {};
 	{
-		// @include __hash.js
-		// @include __style-class.js
-		// @include __touch.js
-		// @include __utility.js
+		// @include dist/js/viewer/__hash.js
+		// @include dist/js/viewer/__style-class.js
+		// @include dist/js/viewer/__touch.js
+		// @include dist/js/viewer/__utility.js
 		{
 			// @include dist/js/viewer/_image.js
 			NS.viewer.applyImage = apply;
