@@ -180,7 +180,7 @@
 // -----------------------------------------------------------------------------
 
 
-@mixin content {
+@mixin content($do-set-heading: true) {
 	@include content.all;
 
 	sub,
@@ -193,6 +193,26 @@
 	}
 	code {
 		font-family: var(--nc-font-mono);
+	}
+	@if $do-set-heading {
+		:where(h1) {
+			@include font.font-size-line-height(9);
+		}
+		:where(h2) {
+			@include font.font-size-line-height(8);
+		}
+		:where(h3) {
+			@include font.font-size-line-height(7);
+		}
+		:where(h4) {
+			@include font.font-size-line-height(6);
+		}
+		:where(h5) {
+			@include font.font-size-line-height(5);
+		}
+		:where(h6) {
+			@include font.font-size-line-height(4);
+		}
 	}
 
 	@media print {
@@ -209,25 +229,6 @@
 		[data-nc-font='#{$i}'] {
 			@include font.font-size-line-height($i);
 		}
-	}
-
-	:where(h1) {
-		@include font.font-size-line-height(9);
-	}
-	:where(h2) {
-		@include font.font-size-line-height(8);
-	}
-	:where(h3) {
-		@include font.font-size-line-height(7);
-	}
-	:where(h4) {
-		@include font.font-size-line-height(6);
-	}
-	:where(h5) {
-		@include font.font-size-line-height(5);
-	}
-	:where(h6) {
-		@include font.font-size-line-height(4);
 	}
 }
 
@@ -333,9 +334,9 @@
 @mixin link {
 	a:where(:not([class])),
 	[data-nc-links] a {
-		@include type.main;
-		@include type.direction;
-		@include type.file;
+		@include link.main;
+		@include link.direction;
+		@include link.file;
 	}
 }
 
