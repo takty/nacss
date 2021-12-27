@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	NS['align'] = {};
 	{
 		// @include dist/js/align/_float.js
-		NS.align.alignFloat = apply;
+		NS.align.applyFloat = apply;
 	}
 
 	// Content -----------------------------------------------------------------
@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			// @include dist/js/viewer/_iframe.js
 			NS.viewer.applyIframe = apply;
 		}
+		// @include dist/js/viewer/_dialog.js
 	}
 
 	// Utility -----------------------------------------------------------------
