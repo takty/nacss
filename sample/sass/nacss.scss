@@ -3,96 +3,44 @@
  * Style
  *
  * @author Takuto Yanagida
- * @version 2021-12-22
+ * @version 2021-12-26
  *
  */
 
 
-@use 'dist/sass/align/float';
-@use 'dist/sass/align/overflow';
+@use 'dist/sass/align/_align';
+@use 'dist/sass/container/_container';
+@use 'dist/sass/content/_content';
+@use 'dist/sass/font/_font';
+@use 'dist/sass/form/_form';
+@use 'dist/sass/link/_link';
+@use 'dist/sass/list/_list';
+@use 'dist/sass/tab/_tab';
+@use 'dist/sass/table/_table';
+@use 'dist/sass/viewer/_viewer';
 
-@use 'dist/sass/container/common' as container;
-@use 'dist/sass/container/card';
-@use 'dist/sass/container/masonry';
-
-@use 'dist/sass/content/inline';
-@use 'dist/sass/content/block';
-@use 'dist/sass/content/figure';
-@use 'dist/sass/content/margin';
-@use 'dist/sass/content/print';
-@use 'dist/sass/content/broken-image';
-
-@use 'dist/sass/font/stack' as font-stack;
-@use 'dist/sass/font/typography';
-
-@use 'dist/sass/form/common' as form;
-@use 'dist/sass/form/button';
-@use 'dist/sass/form/input';
-@use 'dist/sass/form/rad-chk';
-@use 'dist/sass/form/fieldset';
-@use 'dist/sass/form/wrapper-rad-chk';
-@use 'dist/sass/form/wrapper-select';
-@use 'dist/sass/form/wrapper-type-number';
-
-@use 'dist/sass/link/type';
-
-@use 'dist/sass/list/inner' as list-inner;
-
-@use 'dist/sass/tab/scroll' as tab-scroll;
-@use 'dist/sass/tab/stack' as tab-stack;
-
-@use 'dist/sass/table/inner' as table;
-@use 'dist/sass/table/neat-width';
-@use 'dist/sass/table/usable-view';
-
-@use 'dist/sass/viewer/dialog';
-@use 'dist/sass/viewer/frame';
-
-@forward 'dist/sass/utility/layout';
-@forward 'dist/sass/utility/query';
+@forward 'dist/sass/utility/_utility';
 
 
 :root {
-	@include float.custom-property;
-	@include overflow.custom-property;
+	@include align.property;
+	@include container.property;
+	@include content.property;
+	@include font.property;
+	@include form.property;
+	@include link.property;
+	@include list.property;
+	@include tab.property('bar', 'bar');
+	@include table.property(true);  // do-use-stripe
+	@include viewer.property;
 
-	@include container.custom-property;
+	@include font.font-size-line-height(4);
+}
 
-	@include inline.custom-property;
-	@include block.custom-property;
-	@include figure.custom-property;
-	@include margin.custom-property;
-	@include print.custom-property;
-	@include broken-image.custom-property;
-	@media print { @include print.main; }
-
-	@include font-stack.custom-property();
-
-	@include form.custom-property;
-
-	@include type.custom-property-direction;
-	@include type.custom-property-file;
-
-	@include list-inner.custom-property;
-	@include list-inner.custom-property-customized;
-
-	@include tab-scroll.custom-property;
-	@include tab-scroll.custom-property-appearance-bar;
-	// @include tab-scroll.custom-property-appearance-tab;
-	@include tab-stack.custom-property;
-	@include tab-stack.custom-property-appearance-bar;
-	// @include tab-stack.custom-property-appearance-tab;
-
-	@include table.custom-property-appearance;
-	@include table.custom-property-appearance-stripe;
-	@include neat-width.custom-property;
-	@include usable-view.custom-property;
-	@include neat-width.custom-property-side-shadow;
-
-	@include dialog.custom-property;
-	@include frame.custom-property;
-
-	@include typography.font-size-line-height(4);
+@media print {
+	:root {
+		@include content.property-print;
+	}
 }
 
 
@@ -101,32 +49,32 @@
 
 .alignleft,
 .alignright {
-	@include float.side;
+	@include align.float;
 }
 
 .alignleft {
-	@include float.left;
+	@include align.left;
 }
 
 .alignright {
-	@include float.right;
+	@include align.right;
 }
 
 .aligncenter {
-	@include float.center;
+	@include align.center;
 }
 
 .alignfull,
 .alignwide {
-	@include overflow.all;
+	@include align.overflow;
 }
 
 .alignfull {
-	@include overflow.full;
+	@include align.full;
 }
 
 .alignwide {
-	@include overflow.wide;
+	@include align.wide;
 }
 
 
@@ -135,94 +83,94 @@
 
 .column-2 {
 	--nc-container-min-width: var(--nc-container-min-width-2);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .column-3 {
-	@include card.card-3-1;
+	@include container.card-3-1;
 }
 
 .column-4 {
-	@include card.card-4-2-1;
+	@include container.card-4-2-1;
 }
 
 .column-5 {
-	@include card.card-5-3-2-1;
+	@include container.card-5-3-2-1;
 }
 
 .column-6 {
-	@include card.card-6-3-2-1;
+	@include container.card-6-3-2-1;
 }
 
 .column-2-1 {
 	--nc-container-min-width: var(--nc-container-min-width-2);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .column-3-1 {
-	@include card.card-3-1;
+	@include container.card-3-1;
 }
 
 .column-4-1 {
-	@include card.card-4-1;
+	@include container.card-4-1;
 }
 
 .column-5-1 {
-	@include card.card-5-1;
+	@include container.card-5-1;
 }
 
 .column-6-1 {
-	@include card.card-6-1;
+	@include container.card-6-1;
 }
 
 .card-2 {
 	--nc-container-min-width: var(--nc-container-min-width-2);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .card-3 {
 	--nc-container-min-width: var(--nc-container-min-width-3);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .card-4 {
 	--nc-container-min-width: var(--nc-container-min-width-4);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .card-5 {
 	--nc-container-min-width: var(--nc-container-min-width-5);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .card-6 {
 	--nc-container-min-width: var(--nc-container-min-width-6);
-	@include card.card-n;
+	@include container.card-n;
 }
 
 .masonry-2 {
 	--nc-container-min-width: var(--nc-container-min-width-2);
-	@include masonry.masonry-n;
+	@include container.masonry-n;
 }
 
 .masonry-3 {
 	--nc-container-min-width: var(--nc-container-min-width-3);
-	@include masonry.masonry-n;
+	@include container.masonry-n;
 }
 
 .masonry-4 {
 	--nc-container-min-width: var(--nc-container-min-width-4);
-	@include masonry.masonry-n;
+	@include container.masonry-n;
 }
 
 .masonry-5 {
 	--nc-container-min-width: var(--nc-container-min-width-5);
-	@include masonry.masonry-n;
+	@include container.masonry-n;
 }
 
 .masonry-6 {
 	--nc-container-min-width: var(--nc-container-min-width-6);
-	@include masonry.masonry-n;
+	@include container.masonry-n;
 }
 
 
@@ -230,19 +178,24 @@
 
 
 :where(main, .stile) {
-	@include inline.main;
-	@include block.main;
-	@include block.heading;
-	@include figure.main;
-	@include margin.main;
-	@include broken-image.main;
+	@include content.all;
 
+	sub,
+	sup {
+		font-size: font.font-size(2);
+	}
 	caption,
 	figcaption {
-		@include typography.font-size-line-height(3);
+		@include font.font-size-line-height(3);
 	}
 	code {
 		font-family: var(--nc-font-mono);
+	}
+}
+
+@media print {
+	main {
+		@include content.print;
 	}
 }
 
@@ -252,27 +205,27 @@
 
 @for $i from 1 through 16 {
 	[data-nc-font='#{$i}'] {
-		@include typography.font-size-line-height($i);
+		@include font.font-size-line-height($i);
 	}
 }
 
 :where(h1) {
-	@include typography.font-size-line-height(9);
+	@include font.font-size-line-height(9);
 }
 :where(h2) {
-	@include typography.font-size-line-height(8);
+	@include font.font-size-line-height(8);
 }
 :where(h3) {
-	@include typography.font-size-line-height(7);
+	@include font.font-size-line-height(7);
 }
 :where(h4) {
-	@include typography.font-size-line-height(6);
+	@include font.font-size-line-height(6);
 }
 :where(h5) {
-	@include typography.font-size-line-height(5);
+	@include font.font-size-line-height(5);
 }
 :where(h6) {
-	@include typography.font-size-line-height(4);
+	@include font.font-size-line-height(4);
 }
 
 
@@ -295,11 +248,7 @@
 
 :is(button, input[type='submit' i], input[type='button' i], input[type='reset' i], .button),
 input[type='file' i]::file-selector-button {
-	@include button.main;
-}
-
-input[type='file' i]:focus-visible::file-selector-button {
-	box-shadow: none;
+	@include form.main;
 }
 
 :is(
@@ -318,44 +267,44 @@ input[type='file' i]:focus-visible::file-selector-button {
 	select,
 	textarea
 ) {
-	@include input.main;
+	@include form.main;
 }
 
 input[type='color'] {
-	@include input.type-color;
+	@include form.type-color;
 }
 
 input[type='file'] {
-	@include input.type-file;
+	@include form.type-file;
 }
 
 input[type='range'] {
-	@include input.type-range;
+	@include form.type-range;
 }
 
 input[type='radio'] {
-	@include rad-chk.radio;
+	@include form.radio;
 }
 
 input[type='checkbox'] {
-	@include rad-chk.checkbox;
+	@include form.checkbox;
 }
 
 fieldset {
-	@include fieldset.main;
+	@include form.fieldset;
 }
 
 .form-ctrl-radio,
 .form-ctrl-checkbox {
-	@include wrapper-rad-chk.wrapper;
+	@include form.wrapper-rad-chk;
 }
 
 .form-ctrl-number {
-	@include wrapper-type-number.wrapper;
+	@include form.wrapper-type-number;
 }
 
 .form-ctrl-select {
-	@include wrapper-select.wrapper;
+	@include form.wrapper-select;
 }
 
 
@@ -375,9 +324,7 @@ span[data-nc-kern *= 'h'] {
 
 
 a:where(:not([class])) {
-	@include type.main;
-	@include type.direction;
-	@include type.file;
+	@include link.all;
 }
 
 
@@ -385,15 +332,15 @@ a:where(:not([class])) {
 
 
 :is(ul, ol):where(:not([class])) {
-	@include list-inner.un-ordered;
+	@include list.un-ordered;
 }
 
 dl:where(:not([class])) {
-	@include list-inner.definition;
+	@include list.definition;
 }
 
 ul[data-nc-list] {
-	@include list-inner.customized;
+	@include list.custom;
 }
 
 
@@ -401,22 +348,20 @@ ul[data-nc-list] {
 
 
 div:is(.tab-scroll, .pseudo-tab-page) {
-	@include tab-scroll.main;
-	@include tab-scroll.appearance-bar;
-	// @include tab-scroll.appearance-tab;
-
-	@media print {
-		@include tab-scroll.print;
-	}
+	@include tab.scroll('bar');
 }
 
 div:is(.tab-stack, .tab-page) {
-	@include tab-stack.main;
-	@include tab-stack.appearance-bar;
-	// @include tab-stack.appearance-tab;
+	@include tab.stack('bar');
+}
 
-	@media print {
-		@include tab-stack.print
+@media print {
+	div.tab-scroll {
+		@include tab.scroll-print
+	}
+
+	div.tab-stack {
+		@include tab.stack-print;
 	}
 }
 
@@ -433,42 +378,54 @@ table.is-style-stripes {
 }
 
 table[data-nc-table-neat] {
-	@include neat-width.neat;
-	@media print {
-		@include neat-width.neat-print;
-	}
+	@include table.neat;
 }
 
 table[data-nc-table-full] {
-	@include neat-width.full;
+	@include table.full;
 }
 
 table[data-nc-scroll-right], table[data-nc-scroll-left]  {
-	@include neat-width.scroll;
-	@media print {
-		@include neat-width.scroll-print;
-	}
+	@include table.scroll;
 }
 
 table[data-nc-scroll-right]:not([data-nc-scroll-left]) {
-	@include neat-width.scroll-right;
+	@include table.scroll-right;
 }
 
 table[data-nc-scroll-left]:not([data-nc-scroll-right]) {
-	@include neat-width.scroll-left;
+	@include table.scroll-left;
 }
 
 div[data-nc-table-sticky-header-container] {
-	@include usable-view.sticky-header-container;
+	@include table.sticky-header-container;
 }
 
 div[data-nc-table-sticky-header-table] {
 	@include table.appearance-header;
-	@include usable-view.sticky-header-table;
+	@include table.sticky-header-table;
 }
 
 div[data-nc-table-sticky-scroll-bar] {
-	@include usable-view.sticky-scroll-bar;
+	@include table.sticky-scroll-bar;
+}
+
+@media print {
+	table[data-nc-table-neat] {
+		@include table.neat-print;
+	}
+
+	table[data-nc-scroll-right], table[data-nc-scroll-left]  {
+		@include table.scroll-print;
+	}
+
+	div[data-nc-table-sticky-header-container] {
+		@include table.sticky-header-container-print;
+	}
+
+	div[data-nc-table-sticky-scroll-bar] {
+		@include table.sticky-scroll-bar-print;
+	}
 }
 
 
@@ -476,13 +433,13 @@ div[data-nc-table-sticky-scroll-bar] {
 
 
 div[data-nc-viewer] {
-	@include dialog.main;
+	@include viewer.main;
 }
 
 div[data-nc-frame-image] {
-	@include frame.image;
+	@include viewer.image;
 }
 
 div[data-nc-frame-iframe] {
-	@include frame.iframe;
+	@include viewer.iframe;
 }

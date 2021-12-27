@@ -3,7 +3,7 @@
  * Initializer
  *
  * @author Takuto Yanagida
- * @version 2021-12-06
+ * @version 2021-12-27
  *
  */
 
@@ -19,33 +19,30 @@ function initializeQuerySelectorAll(s) {
 }
 
 function initialize(target) {
+
 	// Delay
 
 	const is  = Array.from(target.getElementsByTagName('img'));
 	const tis = Array.from(target.querySelectorAll('table img'));
 	const ifs = Array.from(target.getElementsByTagName('iframe'));
 
-	NACSS.delayImage(is.filter(e => !tis.includes(e)));
-	NACSS.delayIframe(ifs);
+	NACSS.delay.applyImage(is.filter(e => !tis.includes(e)));
+	NACSS.delay.applyIframe(ifs);
 
 	// Content
 
 	const figs = target.getElementsByTagName('figure');
 	const ss   = target.getElementsByTagName('span');
 
-	NACSS.contentImageAlt(is);
-	NACSS.contentFigureCaption(figs);
-	NACSS.contentIframeAspect(ifs);
-	NACSS.contentUnderline(ss);
+	NACSS.content.applyImageAlt(is);
+	NACSS.content.applyFigureCaption(figs);
+	NACSS.content.applyIframeAspect(ifs);
+	NACSS.content.applyUnderline(ss);
 
 	// Link
 
-	const as = target.getElementsByTagName('a');
-	NACSS.linkApply(as);
-
-	if (!CSS.supports('scroll-behavior', 'smooth')) {
-		NACSS.linkAnchorScroll(as, { observedSelector: 'main' });
-	}
+	const as = document.querySelectorAll('a');
+	NACSS.link.applyAll(as, { observedSelector: 'main' });
 
 	// Japanese Text
 
@@ -55,33 +52,33 @@ function initialize(target) {
 		for (const t of ts) sgs.push(t);
 	}
 
-	NACSS.jaSegmenter(sgs, { properNouns: [] });
-	NACSS.jaKerning([target], { doAssignAttribute: false, doDisableOnSelecting: false });
+	NACSS.ja.applySegmenter(sgs, { properNouns: [] });
+	NACSS.ja.applyKerning([target], { doAssignAttribute: false, doDisableOnSelecting: false });
 
 	// Align
 
 	const left  = Array.from(target.getElementsByClassName('alignleft'));
 	const right = Array.from(target.getElementsByClassName('alignright'));
-	NACSS.alignFloat({ left, right }, {});
+	NACSS.align.applyFloat({ left, right }, {});
 
 	// List
 
 	const uls = target.getElementsByTagName('ul');
-	NACSS.listCustomized(uls);
+	NACSS.list.applyCustom(uls);
 
 	// Tab
 
 	const tsc = target.querySelectorAll('.tab-scroll, .pseudo-tab-page');
 	const tst = target.querySelectorAll('.tab-stack, .tab-page');
-	NACSS.tabScroll(tsc);
-	NACSS.tabStack(tst);
+	NACSS.tab.applyScroll(tsc);
+	NACSS.tab.applyStack(tst);
 
 	// Table
 
-	const tabs = target.getElementsByTagName('table');
+	const tables = target.getElementsByTagName('table');
 
-	NACSS.tableNeatWidth(tabs);
-	NACSS.tableUsableView(tabs);
+	NACSS.table.applyNeatWidth(tables);
+	NACSS.table.applyUsableView(tables);
 
 	// Viewer
 
@@ -89,10 +86,10 @@ function initialize(target) {
 	const os_ifs = Array.from(target.querySelectorAll('.iframe-opener + iframe'));
 	const fig_a  = Array.from(target.querySelectorAll('figure a'));
 
-	NACSS.viewerIframe(if_os, os_ifs);
-	NACSS.viewerImage(fig_a);
+	NACSS.viewer.applyIframe(if_os, os_ifs);
+	NACSS.viewer.applyImage(fig_a);
 
 	// Scroll Effect
 	const ts = target.querySelectorAll('[data-nc-scroll-effect]');
-	NACSS.scroll(ts);
+	NACSS.scroll.apply(ts);
 }
