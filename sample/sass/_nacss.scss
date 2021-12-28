@@ -237,7 +237,7 @@
 
 
 @mixin form {
-	:is(
+	:where(
 		input,
 		button,
 		select,
@@ -247,55 +247,61 @@
 		.form-ctrl-number,
 		.form-ctrl-select,
 		.button
-	):is(:disabled, [disabled]) {
+	):where(:disabled, [disabled]) {
 		@include form.disabled;
 	}
 
-	:is(button, input[type='submit' i], input[type='button' i], input[type='reset' i], .button),
-	input[type='file' i]::file-selector-button {
+	:where(
+		button,
+		input[type='submit' i],
+		input[type='button' i],
+		input[type='reset' i],
+		.button
+	),
+	:where(input[type='file' i])::file-selector-button {
 		@include form.button;
 	}
 
-	:is(
-		input[type='text'],
-		input[type='password'],
-		input[type='url'],
-		input[type='email'],
-		input[type='tel'],
-		input[type='search'],
-		input[type='number'],
-		input[type='date'],
-		input[type='month'],
-		input[type='week'],
-		input[type='datetime'],
-		input[type='datetime-local'],
+	:where(
+		input[type='text' i],
+		input[type='password' i],
+		input[type='url' i],
+		input[type='email' i],
+		input[type='tel' i],
+		input[type='search' i],
+		input[type='number' i],
+		input[type='date' i],
+		input[type='month' i],
+		input[type='week' i],
+		input[type='datetime' i],
+		input[type='datetime-local' i],
 		select,
 		textarea
 	) {
 		@include form.input;
 	}
 
-	input[type='color'] {
+	:where(input[type='color' i]) {
 		@include form.type-color;
 	}
 
-	input[type='file'] {
+	:where(input[type='file' i]) {
 		@include form.type-file;
 	}
 
-	input[type='range'] {
+	:where(input[type='range' i]) {
 		@include form.type-range;
 	}
 
-	input[type='radio'] {
+	:where(input[type='radio' i]) {
 		@include form.radio;
 	}
 
-	input[type='checkbox'] {
+	:where(input[type='checkbox' i]) {
 		@include form.checkbox;
 	}
 
-	fieldset {
+	:where(fieldset) {
 		@include form.fieldset;
 	}
 
