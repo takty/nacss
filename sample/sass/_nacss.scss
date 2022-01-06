@@ -3,7 +3,7 @@
  * Style
  *
  * @author Takuto Yanagida
- * @version 2021-12-27
+ * @version 2022-01-06
  *
  */
 
@@ -34,7 +34,7 @@
 	@include link.property;
 	@include list.property;
 	@include tab.property('bar', 'bar');
-	@include table.property(true);  // do-use-stripe
+	@include table.property(true);  // $do-use-stripe
 	@include viewer.property;
 
 	@media print {

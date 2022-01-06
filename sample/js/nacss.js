@@ -3,7 +3,7 @@
  * Script
  *
  * @author Takuto Yanagida
- * @version 2021-12-27
+ * @version 2022-01-06
  *
  */
 
@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Table -------------------------------------------------------------------
 	NS['table'] = {};
 	{
+		// @include dist/js/table/__scroll-padding-top.js
 		{
 			// @include dist/js/table/_neat-width.js
 			NS.table.applyNeatWidth = apply;
