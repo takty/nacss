@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	window['NACSS'].initializeQuerySelectorAll('.user-content');
 
 	const as = document.querySelectorAll('[data-nc-links] a, [data-nc-links-ns] a');
-	NACSS.link.applyAll(as);
+	NACSS.link.applyType(as, { observedSelector: 'main' });
+	if (!CSS.supports('scroll-behavior', 'smooth')) {
+		NACSS.link.applySmooth(as, { observedSelector: 'main' });
+	}
 
 	const ks = document.querySelectorAll('[data-nc-kerning]');
 	NACSS.ja.applyKerning(ks, { doAssignAttribute: false, doDisableOnSelecting: true });
@@ -114,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			NS.smoothScrollToElement = smoothScrollToElement;
 		}
 		// @include dist/js/link/_common.js
-		NS.link.applyAll = applyAll;
 	}
 
 	// List --------------------------------------------------------------------
