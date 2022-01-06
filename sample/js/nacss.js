@@ -150,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Table -------------------------------------------------------------------
 	NS['table'] = {};
 	{
-		// @include dist/js/table/__scroll-padding-top.js
 		{
 			// @include dist/js/table/_neat-width.js
 			NS.table.applyNeatWidth = apply;
@@ -159,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			// @include dist/js/table/_usable-view.js
 			NS.table.applyUsableView = apply;
 		}
+		// @include dist/js/table/__scroll-padding-top.js
 	}
 
 	// Viewer ------------------------------------------------------------------
