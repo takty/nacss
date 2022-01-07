@@ -12,9 +12,9 @@ function initialize(target) {
 
 	// Delay
 
-	const is  = Array.from(target.getElementsByTagName('img'));
-	const tis = Array.from(target.querySelectorAll('table img'));
-	const ifs = Array.from(target.getElementsByTagName('iframe'));
+	const is  = [...target.getElementsByTagName('img')];
+	const tis = [...target.querySelectorAll('table img')];
+	const ifs = [...target.getElementsByTagName('iframe')];
 
 	NACSS.delay.applyImage(is.filter(e => !tis.includes(e)));
 	NACSS.delay.applyIframe(ifs);
@@ -39,7 +39,7 @@ function initialize(target) {
 
 	// Japanese Text
 
-	const sgs = Array.from(target.getElementsByClassName('segmenter'));
+	const sgs = [...target.getElementsByClassName('segmenter')];
 	for (const h of [1, 2, 3, 4, 5, 6]) {
 		const ts = target.querySelectorAll(`h${h}:not([class])`);
 		for (const t of ts) sgs.push(t);
@@ -50,8 +50,8 @@ function initialize(target) {
 
 	// Align
 
-	const left  = Array.from(target.getElementsByClassName('alignleft'));
-	const right = Array.from(target.getElementsByClassName('alignright'));
+	const left  = [...target.getElementsByClassName('alignleft')];
+	const right = [...target.getElementsByClassName('alignright')];
 	NACSS.align.applyFloat({ left, right }, {});
 
 	// List
@@ -75,9 +75,9 @@ function initialize(target) {
 
 	// Viewer
 
-	const if_os  = Array.from(target.getElementsByClassName('iframe-opener'));
-	const os_ifs = Array.from(target.querySelectorAll('.iframe-opener + iframe'));
-	const fig_a  = Array.from(target.querySelectorAll('figure a'));
+	const if_os  = [...target.getElementsByClassName('iframe-opener')];
+	const os_ifs = [...target.querySelectorAll('.iframe-opener + iframe')];
+	const fig_a  = [...target.querySelectorAll('figure a')];
 
 	NACSS.viewer.applyIframe(if_os, os_ifs);
 	NACSS.viewer.applyImage(fig_a);
