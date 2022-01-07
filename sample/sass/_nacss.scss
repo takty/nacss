@@ -3,7 +3,7 @@
  * Style
  *
  * @author Takuto Yanagida
- * @version 2022-01-06
+ * @version 2022-01-07
  *
  */
 
@@ -33,9 +33,17 @@
 	@include form.property;
 	@include link.property;
 	@include list.property;
-	@include tab.property('bar', 'bar');
-	@include table.property(true);  // $do-use-stripe
 	@include viewer.property;
+
+	@include table.property;
+	@include table.property-appearance-stripe;
+
+	@include tab.property-scroll;
+	@include tab.property-scroll-bar;
+	// @include tab.property-scroll-tab;
+	@include tab.property-stack;
+	@include tab.property-stack-bar;
+	// @include tab.property-stack-tab;
 
 	@media print {
 		@include content.property-print;
@@ -181,7 +189,7 @@
 
 
 @mixin content($do-set-heading: true) {
-	@include content.all;
+	@include content.all(false /* $do-reset */);
 
 	sub,
 	sup {
@@ -370,11 +378,15 @@
 
 @mixin tab {
 	div:is(.tab-scroll, .pseudo-tab-page) {
-		@include tab.scroll('bar');
+		@include tab.scroll(false /* $do-reset */);
+		@include tab.scroll-bar;
+		// @include tab.scroll-tab;
 	}
 
 	div:is(.tab-stack, .tab-page) {
-		@include tab.stack('bar');
+		@include tab.stack(false /* $do-reset */);
+		@include tab.stack-bar;
+		// @include tab.stack-tab;
 	}
 
 	@media print {
@@ -402,7 +414,7 @@
 	}
 
 	table[data-nc-table-neat] {
-		@include table.neat;
+		@include table.neat(false /* $do-reset */);
 	}
 
 	table[data-nc-table-full] {
@@ -459,7 +471,7 @@
 
 @mixin viewer {
 	div[data-nc-viewer] {
-		@include viewer.main;
+		@include viewer.main(false /* $do-reset */);
 	}
 
 	div[data-nc-frame-image] {

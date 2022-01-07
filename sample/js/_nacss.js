@@ -3,7 +3,7 @@
  * Script
  *
  * @author Takuto Yanagida
- * @version 2021-12-27
+ * @version 2022-01-07
  *
  */
 
@@ -32,7 +32,10 @@ function initialize(target) {
 	// Link
 
 	const as = target.querySelectorAll('a');
-	NACSS.link.applyAll(as);
+	NACSS.link.applyType(as, { observedSelector: 'main' });
+	if (!CSS.supports('scroll-behavior', 'smooth')) {
+		NACSS.link.applySmooth(as, { observedSelector: 'main' });
+	}
 
 	// Japanese Text
 

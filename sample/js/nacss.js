@@ -3,7 +3,7 @@
  * Script
  *
  * @author Takuto Yanagida
- * @version 2022-01-06
+ * @version 2022-01-07
  *
  */
 
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ((NS) => {
 
+	// @include dist/js/_/__scroll-padding-top.js
 	// @include dist/js/_/__style-class.js
 	// @include dist/js/_/__utility.js
 	{
@@ -158,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			// @include dist/js/table/_usable-view.js
 			NS.table.applyUsableView = apply;
 		}
-		// @include dist/js/table/__scroll-padding-top.js
 	}
 
 	// Viewer ------------------------------------------------------------------
